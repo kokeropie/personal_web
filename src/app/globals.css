@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: #000008;
+  }
+
+  body {
+    background: transparent;
+    @apply text-slate-100 transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-20;
+  }
+
+  .container-max {
+    @apply max-w-5xl mx-auto;
+  }
+}
