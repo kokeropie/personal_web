@@ -30,13 +30,16 @@ Single-page app — one route (`/`), no dynamic routes. All content is staticall
 - `src/data/projects.ts` and `src/data/experience.ts` are the only files to edit for content changes — no component edits needed.
 - Skills (in `About.tsx`) and education are hardcoded directly in the component, not in a data file.
 - `src/types/index.ts` defines `Project`, `Experience`, and `Skill` interfaces.
-- Sections (`src/sections/`) are server components except `Contact.tsx` (`'use client'` — form state).
+- Sections (`src/sections/`) are server components except `Contact.tsx` (`'use client'` — form state) and `Hero.tsx` (`'use client'` — delegates to PixelHero).
 - `Navbar.tsx` is `'use client'` (mobile menu state). Everything else is server-rendered.
 - `ThemeToggle.tsx` exists but is unused — theme is forced dark.
-- `src/components/ui/` exists but is currently empty.
+- `src/components/ui/pixel-perfect-hero.tsx` — the animated pixel shader hero component.
+- `src/lib/utils.ts` — `cn()` helper (clsx + tailwind-merge).
 - `ProjectCard.tsx` renders each project — shows a gradient letter placeholder (not an image) because no real images exist yet.
 
-**Theme:** `next-themes` wraps the app with `forcedTheme="dark"` — always dark. `Starfield.tsx` renders 280 animated twinkling stars on a fixed canvas behind all content.
+**Theme:** `next-themes` wraps the app with `forcedTheme="dark"` — always dark. `Starfield.tsx` renders 280 animated twinkling stars on a fixed canvas behind all content (visible in every section except Hero, which has its own canvas).
+
+**Hero section:** `PixelHero` (`src/components/ui/pixel-perfect-hero.tsx`) renders a full-viewport animated pixel canvas with a staggered outward-ripple physics engine. Pixel colors are read at runtime from CSS variables (`--muted-foreground` and `--primary`). The "Data Mastery." headline uses a `tahoe-glass-text` shimmer gradient. A scrolling marquee of tech stack logos sits at the bottom of the section.
 
 **Font:** Inter (Google Fonts, latin subset), applied via `inter.className` on `<body>`.
 
@@ -70,7 +73,7 @@ Single-page app — one route (`/`), no dynamic routes. All content is staticall
 - Magister Manajemen Sistem Informatika (MMSI) · Universitas Bina Nusantara · Jakarta, 2002
 - B.S., Economics · University of Oregon · Eugene, OR, 1997
 
-**Email (live, not a placeholder):** `cpkusuma@gmail.com` — used in Hero and Footer social links.
+**Email (live, not a placeholder):** `cpkusuma@gmail.com` — used in Footer social links (no longer in Hero — Hero was replaced by PixelHero).
 
 ## Design system — cosmic/space theme
 
@@ -85,6 +88,18 @@ The visual aesthetic is deep space: pure black background, silver/white text, gl
 
 - `html { background: #000008 }` — near-pure black base
 - `body { background: transparent }` — lets the html dark bg and starfield show through
+
+**CSS variables (defined in `globals.css`, always-dark values):**
+
+- `--background: 240 100% 1.5%` — near-pure black, matches `html { background: #000008 }`
+- `--foreground: 0 0% 100%` — white
+- `--primary: 0 0% 100%` — white (used for primary buttons and pixel highlight color)
+- `--primary-foreground: 0 0% 4%` — near-black text on white buttons
+- `--muted-foreground: 215 20% 65%` — slate-400 equivalent (used for pixel canvas base color)
+- `--card: 0 0% 4%` / `--card-foreground: 215 20% 85%` — dark card bg + light text
+- `--border: 0 0% 100%` — white (used with opacity modifiers like `ring-border/50`)
+
+Use `hsl(var(--xxx))` in Tailwind config. Use `hsl(var(--background))` (not `var(--background)`) in arbitrary CSS values — the raw variable holds HSL components only, not a full color.
 
 **Color palette (no `dark:` prefixes — always dark):**
 
@@ -120,8 +135,8 @@ NEXT_PUBLIC_WEB3FORMS_KEY=<web3forms access key>
 
 Search the codebase for these strings:
 
-- `[your-username]` — ✓ resolved: `github.com/kokeropie` (Hero, Footer, projects.ts)
-- `[your-linkedin]` — ✓ resolved: `linkedin.com/in/kusumajaya-na-59a57420` (Hero, Footer)
+- `[your-username]` — ✓ resolved: `github.com/kokeropie` (PixelHero CTA, Footer, projects.ts)
+- `[your-linkedin]` — ✓ resolved: `linkedin.com/in/kusumajaya-na-59a57420` (Footer)
 - `public/resume.pdf` — ✓ file exists, casing matches Hero's `href="/resume.pdf"`
 - `public/projects/` — folder exists but is empty; add `etl-tool.png`, `dashboard.png`, and a third project image
 - Project 3 in `projects.ts` — replace the `[Your Next Project]` placeholder
