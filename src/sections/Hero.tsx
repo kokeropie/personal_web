@@ -7,7 +7,7 @@ export default function Hero() {
     <PixelHero
       word1="Data"
       word2="Mastery."
-      description="17+ years engineering the data backbone of a travel company — MS SQL, QlikView dashboards, and business process automation at Panorama Tours."
+      description="17+ years engineering the data backbone of a travel company — MS SQL, QlikView dashboards, and business process automation at Panorama-JTB Tours Indonesia."
       primaryCta="View Projects"
       primaryCtaMobile="Projects"
       secondaryCta="View GitHub"
