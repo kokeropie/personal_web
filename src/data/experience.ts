@@ -4,7 +4,7 @@ export const experiences: Experience[] = [
   {
     id: '1',
     role: 'MIS Manager',
-    company: 'PT. Tirta Putra Wisata (Panorama Tours)',
+    company: 'PT. Tirta Putra Wisata (Panorama-JTB Tours Indonesia)',
     duration: 'January 2008 — Present',
     location: 'Jakarta, Indonesia',
     description: [

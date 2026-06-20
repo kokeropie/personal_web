@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://yourdomain.com'),
   title: 'Kusuma | MIS Manager',
   description:
-    'Information System Manager based in Jakarta, Indonesia. 17+ years in MS SQL, QlikView dashboards, Crystal Reports, SSRS, and business process automation at Panorama Tours.',
+    'Information System Manager based in Jakarta, Indonesia. 17+ years in MS SQL, QlikView dashboards, Crystal Reports, SSRS, and business process automation at Panorama-JTB Tours Indonesia.',
   openGraph: {
     title: 'Kusuma | MIS Manager',
     description:

@@ -32,7 +32,7 @@ export default function About() {
           {/* Bio */}
           <div>
             <p className="mb-4 text-slate-400 leading-relaxed">
-              I&apos;m an Information System Manager at Panorama Tours in Jakarta,
+              I&apos;m an Information System Manager at Panorama-JTB Tours Indonesia in Jakarta,
               where I&apos;ve spent over 17 years turning data into systems that
               actually run the business — from designing MS SQL databases to
               building QlikView dashboards for top management.
@@ -44,15 +44,17 @@ export default function About() {
               procedures into something systematic and reliable.
             </p>
             <p className="mb-4 text-slate-400 leading-relaxed">
-              Before Panorama, I spent seven years at Carlson Wagonlit Travel
+              Before Panorama-JTB Tours Indonesia, I spent seven years at Carlson Wagonlit Travel
               handling Account Management, IT, and MIS — including implementing
               Sabre GDS scripting across offices and completing CWT training in
               Bangkok, China, and Singapore.
             </p>
             <p className="text-slate-400 leading-relaxed">
               Currently learning to code — building an ETL automation tool in
-              Python to replace the manual data extraction I&apos;ve been doing
-              by hand for years.
+              Python to replace the propietary software I&apos;ve been using for years. It&apos;s a fun challenge to recreate the same functionality in a language I&apos;m still learning, and it&apos;s helping me understand the underlying processes even better.
+            </p>
+            <p className="text-slate-400 leading-relaxed">
+           
             </p>
 
             {/* Education */}
