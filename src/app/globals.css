@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 @layer base {
+  :root,
+  .dark {
+    --background: 240 100% 1.5%;
+    --foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 4%;
+    --muted-foreground: 215 20% 65%;
+    --card: 0 0% 4%;
+    --card-foreground: 215 20% 85%;
+    --border: 0 0% 100%;
+  }
+
   html {
     scroll-behavior: smooth;
     background: #000008;
